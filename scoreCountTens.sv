@@ -1,3 +1,5 @@
+//Keeps track of 10's place for score
+//outputs increment for 100's place 
 module scoreCountTens (HEX1, inc100, dec100, inc10, dec10, reset, clk);
 
 	input logic   inc10, dec10, reset, clk;  
