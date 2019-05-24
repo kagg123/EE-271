@@ -13,21 +13,3 @@ module D_FF (o, clk1, clk2, i);
 	end
 	
 endmodule
-
-//module D_FF_testbench();
-//	output logic o;
-//	input logic clk1, clk2, i;
-//	
-//	D_FF dut(o, clk1, clk2, i);
-//	
-//	parameter CLOCK_PERIOD=100;
-//		 initial begin
-//				clk <= 0;
-//				forever #(CLOCK_PERIOD/2) clk <= ~clk; 
-//		  end
-//	initial begin	
-//		@(posedge clk);
-//
-//	end
-//	endmodule
-//	
