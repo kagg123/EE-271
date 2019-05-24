@@ -1,3 +1,5 @@
+//parses through rows extremely fast so it seems like a single image, for more info on exactly how it works check out this video
+//https://www.youtube.com/watch?v=G4lIo-MRSiY
 module led_matrix_driver (clock, red_array, green_array, red_driver, green_driver, row_sink);
 	
 	input clock;
