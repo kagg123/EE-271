@@ -1,3 +1,4 @@
+//generates a "press" which is true for exactly one clock cycle everytime a KEY is pressed
 module singlePress(press, clk, KEY);
 
 	input logic clk, KEY;
@@ -14,19 +15,3 @@ module singlePress(press, clk, KEY);
 	
 	
 endmodule
-
-//testbench
-//module D_FF_testbench();
-//	logic o;
-//	logic clk, i;
-//	
-//	D_FF D_FFdut(.o , .clk, .i);
-//	initial begin
-//	i <= 0;  @(posedge clk); 
-//				@(posedge clk); 
-//	i <= 1;  @(posedge clk); 
-//				@(posedge clk);
-//			$stop; 	
-//	end
-//
-//endmodule
