@@ -1,7 +1,10 @@
-module scoreCountOnes (HEX0, inc10, dec10, pos2, pos1, minus2, reset, clk);
+//Keeps track of ones place for score
+//outputs increment for 10's place 
 
+module scoreCoutOnes (HEX0, inc10, dec10, pos2, pos1, minus2, reset, clk);
 	input logic   pos2, pos1, reset, clk, minus2;  
 	output logic [6:0] HEX0;
+	
 	output logic inc10, dec10;
 	
 	enum {zero, one, two, three, four, five, six, seven, eight, nine} score_ps, score_ns;
@@ -136,17 +139,3 @@ module scoreCountOnes (HEX0, inc10, dec10, pos2, pos1, minus2, reset, clk);
 	
 endmodule
 	
-//testbench
-//module counter_testbench();
-//
-//	logic [2:0] score;  
-//	logic [6:0] HEX;
-//	
-//	counter counterdut(.HEX, .score);
-//
-// initial begin
-//	 for(i = 0; i <8; i++) begin
-//		score[2:0] = i; #10;
-//	 end
-// end
-//endmodule
