@@ -125,26 +125,3 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, GPIO_0, KEY, LEDR,
 
 endmodule
 
-//module DE1_SoC_testbench();
-// logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-// logic [9:0] LEDR;
-// logic CLOCK_50;
-// logic [3:0] KEY;
-// logic [9:0] SW;
-//
-// DE1_SoC dut (.HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .KEY, .LEDR, .CLOCK_50, .SW);
-//
-// // Try all combinations of inputs.
-// initial begin
-//						@(posedge clk); 
-//	SW[9] <= 0; 	@(posedge clk); 
-//						@(posedge clk); 
-//	SW[9] <= 1; 	@(posedge clk);
-//	KEY[0] <= 1;   @(posedge clk);
-//	KEY[0] <= 0;   @(posedge clk);
-//	for(i = 0; i <512; i++) begin
-//		SW[9]= 1; SW[8:0] = i; @(posedge clk);;
-//	 end
-//
-// end
-//endmodule;
