@@ -1,3 +1,4 @@
+//accepts 2 10 bit binaries and outputs true if A > B
 module ten_bit_comparator (trueOutput, A, B );
 	
 	input logic [9:0] A, B;
@@ -29,39 +30,3 @@ module ten_bit_comparator (trueOutput, A, B );
 	
 endmodule
 
-//testbench
-//module ten_bit_comparator_testbench();
-//
-//	logic [9:0] A, B;  
-//	logic trueOutput;
-//	
-//	counter ten_bit_comparator_dut(.trueOutput, .A, .B);
-//
-// initial begin
-//	 for(i = 0; i <1024; i++) begin
-//		for (j=0; j<1024; j++) begin
-//			A[9:0] = i; #10;
-//			B[9:0] = j; #10
-//		end
-//	 end
-// end
-//endmodule
-
-
-//testbench
-//module ten_bit_comparator_testbench();
-//
-//	logic [9:0] A, B;  
-//	logic trueOutput;
-//	
-//	counter ten_bit_comparator_dut(.trueOutput, .A, .B);
-//
-// initial begin
-//	 for(i = 0; i <1024; i++) begin
-//		for (j=0; j<1024; j++) begin
-//			A[9:0] = i; #10;
-//			B[9:0] = j; #10
-//		end
-//	 end
-// end
-//endmodule
