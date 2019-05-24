@@ -1,3 +1,5 @@
+//generates a random 10 bit binary number that changes every clock cycle
+//accepts a clock and reset value
 module LFSR (Q, clk, reset, resetVal);
 	output logic [9:0] Q;
 	input logic clk, reset;
