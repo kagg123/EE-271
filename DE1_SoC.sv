@@ -24,7 +24,7 @@ assign HEX4 = 7'b1111111;
 assign HEX5 = 7'b1111111;
  
  
-	//use a clock divider to create a slower clock (better speed for LED array)
+//use a clock divider to create a slower clock (better speed for LED array)
 parameter whichClock = 5;
 clock_divider cdiv (.clock(CLOCK_50), .reset(SW[9]), .divided_clocks(clk)); 
 
@@ -93,15 +93,15 @@ assign green_array[7] = 8'b00000000;
 //drives the led columns to display on the led Array
 led_matrix_driver drive(.clock(clk[whichClock]), .red_array, .green_array, .red_driver(GPIO_0[35:28]), .green_driver(GPIO_0[27:20]), .row_sink(GPIO_0[19:12]));
 
-	//inputs red array and press to determine if point is made for each bank
-	scoreIncrement inc0(.pos2(pos2_0), .pos1(pos1_0), .pos1_LastRow(pos1_LastRow_0), .minus2(minus2_0), .red_arrayColumn_FinalRows(col0[3:0]), .pressedKey(pressZero));
-	scoreIncrement inc1(.pos2(pos2_1), .pos1(pos1_1), .pos1_LastRow(pos1_LastRow_1), .minus2(minus2_1), .red_arrayColumn_FinalRows(col1[3:0]), .pressedKey(pressOne));
-	scoreIncrement inc2(.pos2(pos2_2), .pos1(pos1_2), .pos1_LastRow(pos1_LastRow_2), .minus2(minus2_2), .red_arrayColumn_FinalRows(col2[3:0]), .pressedKey(pressTwo));
-	scoreIncrement inc3(.pos2(pos2_3), .pos1(pos1_3), .pos1_LastRow(pos1_LastRow_3), .minus2(minus2_3), .red_arrayColumn_FinalRows(col3[3:0]), .pressedKey(pressThree));
+//inputs red array and press to determine if point is made for each bank
+scoreIncrement inc0(.pos2(pos2_0), .pos1(pos1_0), .pos1_LastRow(pos1_LastRow_0), .minus2(minus2_0), .red_arrayColumn_FinalRows(col0[3:0]), .pressedKey(pressZero));
+scoreIncrement inc1(.pos2(pos2_1), .pos1(pos1_1), .pos1_LastRow(pos1_LastRow_1), .minus2(minus2_1), .red_arrayColumn_FinalRows(col1[3:0]), .pressedKey(pressOne));
+scoreIncrement inc2(.pos2(pos2_2), .pos1(pos1_2), .pos1_LastRow(pos1_LastRow_2), .minus2(minus2_2), .red_arrayColumn_FinalRows(col2[3:0]), .pressedKey(pressTwo));
+scoreIncrement inc3(.pos2(pos2_3), .pos1(pos1_3), .pos1_LastRow(pos1_LastRow_3), .minus2(minus2_3), .red_arrayColumn_FinalRows(col3[3:0]), .pressedKey(pressThree));
 
-	//determines whether to add 2, add1, or subtract 2 from the overall score
-	//NOTE: This model assumes it is impossible for 2 buttons to be pressed at exactly the same clock cycle. Since every time a button is pressed it is only true for 
-	//a miniscule fraction of a second, it's nearly impossible for them to be pressed at the exact same time anyway.
+//determines whether to add 2, add1, or subtract 2 from the overall score
+//NOTE: This model assumes it is impossible for 2 buttons to be pressed at exactly the same clock cycle.
+//Since a clock cycle is a miniscule fraction of a second, this is a fair assumption to make.
 	always_comb begin
 		if (pos2_0 | pos2_1 | pos2_2 | pos2_3) begin
 			pos2 = 1;
@@ -125,11 +125,11 @@ led_matrix_driver drive(.clock(clk[whichClock]), .red_array, .green_array, .red_
 		end
 	end
 	
-	//keeps track of score and sets HEX values accordingly
-	//min score: 0 max score:999
-	scoreCountOnes track1(.HEX0(HEX0[6:0]), .inc10, .dec10, .pos2, .pos1, .minus2, .reset(SW[9]), .clk(clk[whichClock]));
-	scoreCountTens track10(.HEX1(HEX1[6:0]), .inc100, .dec100, .inc10, .dec10, .reset(SW[9]), .clk(clk[whichClock]));
-	scoreCountHundreds track100(.HEX2(HEX2[6:0]), .inc100, .dec100, .reset(SW[9]), .clk(clk[whichClock]));
+//keeps track of score and sets HEX values accordingly
+//min score: 0 max score:999
+scoreCountOnes track1(.HEX0(HEX0[6:0]), .inc10, .dec10, .pos2, .pos1, .minus2, .reset(SW[9]), .clk(clk[whichClock]));
+scoreCountTens track10(.HEX1(HEX1[6:0]), .inc100, .dec100, .inc10, .dec10, .reset(SW[9]), .clk(clk[whichClock]));
+scoreCountHundreds track100(.HEX2(HEX2[6:0]), .inc100, .dec100, .reset(SW[9]), .clk(clk[whichClock]));
 
 
 endmodule
