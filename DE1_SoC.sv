@@ -24,7 +24,7 @@ assign HEX4 = 7'b1111111;
 assign HEX5 = 7'b1111111;
  
  
- //use a clock divider to create a slower clock 
+	//use a clock divider to create a slower clock (better speed for LED array)
 parameter whichClock = 5;
 clock_divider cdiv (.clock(CLOCK_50), .reset(SW[9]), .divided_clocks(clk)); 
 
